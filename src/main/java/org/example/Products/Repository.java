@@ -1,10 +1,10 @@
 package org.example.Products;
 public class Repository {
 
-    protected org.example.Products.Product[] products = new org.example.Products.Product[0];
+    protected Product[] products = new Product[0];
 
-    public void addProduct(org.example.Products.Product product) {
-        org.example.Products.Product[] tmp = new org.example.Products.Product[products.length + 1];
+    public void addProduct(Product product) {
+        Product[] tmp = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];
         }
@@ -12,13 +12,13 @@ public class Repository {
         products = tmp;
     }
 
-    public org.example.Products.Product[] findAll() {
+    public Product[] findAll() {
 
         return products;
     }
 
-    public org.example.Products.Product findById(int id) {
-        for (org.example.Products.Product product : products) {
+    public Product findById(int id) {
+        for (Product product : products) {
             if (product.getId() == id) {
                 return product;
             }
@@ -31,9 +31,9 @@ public class Repository {
             throw new NotFoundException("Товарс ID" + id + "отсутствует");
         }
 
-        org.example.Products.Product[] tmp = new org.example.Products.Product[products.length - 1];
+        Product[] tmp = new Product[products.length - 1];
         int copyToIndex = 0;
-        for (org.example.Products.Product product : products){
+        for (Product product : products){
             if (product.getId() != id) {
                 tmp[copyToIndex] = product;
                 copyToIndex++;
